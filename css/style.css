@@ -30,75 +30,137 @@ body {
     url("../img/hero.jpg");
   background-size: cover;
   background-position: top;
-  clip-path: polygon(0 0,100% 0, 100% 75vh , 0 100%);
+  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
   position: relative;
 }
-.logo-box{
-    position:absolute;
-    top:40px;
-    left: 40px;
+.logo-box {
+  position: absolute;
+  top: 40px;
+  left: 40px;
 }
-.logo{
-    height: 35px;
-}
-
-.text-box{
-    position: absolute;
-    top: 40%;
-    left: 52%;
-    transform: translate(-50%,-50%);
-}
-.heading-primary{
-    color: white;
-    text-transform: uppercase;
-    backface-visibility: hidden;
-}
-.heading-primary-main{
-    display: block;
-    font-size: 60px;
-    font-weight: 400;
-    letter-spacing: 35px;
-    animation-name: moveInLeft;
-    animation-duration: 3s;
-    animation-timing-function: ease-in;
-   
-}
-.heading-primary-sub{
-    display: block;
-    font-size: 20px;
-    font-weight: 400;
-    letter-spacing: 17.2px;
-    animation-name: moveInRight;
-    animation-duration: 3s;
-    animation-timing-function: ease-in;
+.logo {
+  height: 35px;
 }
 
+.text-box {
+  position: absolute;
+  top: 40%;
+  left: 52%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+.heading-primary {
+  color: white;
+  text-transform: uppercase;
+  backface-visibility: hidden;
+  margin-bottom: 60px;
+}
+.heading-primary-main {
+  display: block;
+  font-size: 60px;
+  font-weight: 400;
+  letter-spacing: 35px;
+  animation-name: moveInLeft;
+  animation-duration: 3s;
+  animation-timing-function: ease-in;
+}
+.heading-primary-sub {
+  display: block;
+  font-size: 20px;
+  font-weight: 400;
+  letter-spacing: 17.2px;
+  animation-name: moveInRight;
+  animation-duration: 3s;
+  animation-timing-function: ease-in;
+}
 
 @keyframes moveInLeft {
-  0%{
+  0% {
     opacity: 0;
-    transform: translateX(-100px)
+    transform: translateX(-100px);
   }
-  80%{
+  80% {
     transform: translateX(15px);
   }
 
-  100%{
+  100% {
     opacity: 1;
     transform: translateX(0);
   }
 }
 @keyframes moveInRight {
-  0%{
+  0% {
     opacity: 0;
     transform: translateX(100px);
   }
-  80%{
+  80% {
+    opacity: 0.8;
     transform: translateX(-15px);
   }
-  100%{
+  100% {
     opacity: 1;
     transform: translateX(0);
   }
-  
+}
+@keyframes moveInBottom {
+  0% {
+    opacity: 0;
+    transform: translateY(100px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(0px);
+  }
+}
+
+.btn:link,
+.btn:visited {
+  text-decoration: none;
+  text-transform: uppercase;
+  padding: 15px 40px;
+  display: inline-block;
+  border-radius: 100px;
+  transition: all 0.3s;
+  position: relative;
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+.btn:active {
+  transform: translateY(-1px);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+}
+
+.btn-white {
+  background-color: white;
+  color: #777;
+}
+
+.btn::after {
+  content: "";
+  display: inline-block;
+  height: 100%;
+  width: 100%;
+  border-radius: 100px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+.btn-white::after {
+  background-color: white;
+  transition: all 0.5s;
+}
+
+.btn:hover::after {
+  transform: scaleX(1.4) scaleY(1.6);
+  opacity: 0;
+}
+.btn-animated {
+  animation: moveInBottom 3s ease-in-out 1s;
+  animation-fill-mode: backwards;
 }
